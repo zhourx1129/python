@@ -7,7 +7,7 @@ def InsertionSort(arr):
             arr[preIndex+1] = arr[preIndex]
             preIndex -= 1
         arr[preIndex+1] = current
-    return arr
+        print(li)
 
 li = np.arange(15)
 np.random.shuffle(li)
@@ -16,3 +16,4 @@ print(li)
 print("------------修改后----------")
 # li = [9,5,3,7,6,8,1,2,4]
 InsertionSort(li)
+print(li)
