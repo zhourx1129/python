@@ -1,3 +1,5 @@
+import numpy as np
+
 def Quick_Sort(li,left,right):
     tem = li[left]
     while left < right:
@@ -20,7 +22,8 @@ def QuickSort(li,left,right):
         QuickSort(li,left,mid-1)
         QuickSort(li,mid+1,right)
 
-
-li = [9,5,3,7,6,8,1,2,4]
+li = np.arange(100)
+np.random.shuffle(li)
+# li = [9,5,3,7,6,8,1,2,4]
 QuickSort(li,0,len(li)-1)
 print(li)
