@@ -4,7 +4,7 @@ import requests
 import os
 
 # 判断是否存在此文件夹，如果没有则创建一个
-path = './美女图片/'
+""" path = './美女图片/'
 if not os.path.exists(path):
     os.makedirs(path)
 # ua伪装
@@ -26,7 +26,7 @@ for li in li_list:
     with open(path + picture_name, 'wb') as fp:
         fp.write(down)
         print(picture_name,"下载完毕!")
-print("over!")
+print("over!") """
 
 '''
 # 设置保存路径
@@ -57,3 +57,28 @@ for src, name in zip(img_src, img_alt):
     	print(f"正在为您下载图片：{img_name}")
     f.write(img_content)
 '''
+
+
+path = r'D:\\美女图片\\'
+if not os.path.exists(path):
+    os.mkdir(path)
+# ua伪装
+headers = {
+    'User-Agent': UserAgent().random
+}
+# 主页网址
+homePage_url = 'https://pic.netbian.com/4kmeinv/'
+response = requests.get(homePage_url,headers=headers)
+response.encoding = "GBK"
+html = etree.HTML(response.text)
+li_list = html.xpath('//ul[@class="clearfix"]/li')
+for li in li_list:
+    #获取图片名称
+    picture_name = li.xpath('./a/b/text()')[0] + '.jpg'
+    # 获取图片下载链接
+    picture_url = 'https://pic.netbian.com/' + li.xpath('./a/@href')[0]
+    down = requests.get(picture_url,headers).content
+    with open(path + picture_name, 'wb') as fp:
+        fp.write(down)
+        print(picture_name,"下载完毕!")
+print("over!")
