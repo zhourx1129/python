@@ -25,4 +25,8 @@ for li in li_list:
     score = li.xpath('./div[2]/div/span[2]/text()')[0].strip() #评分
     with open('./豆瓣图书.txt','a',encoding='utf-8') as fp:
         fp.write(book_name+'\t'+score+'\t'+detailed_information+'\n'+'\t'+synopsis+'\n'+'\n')
+<<<<<<< HEAD
         print(book_name,'已完成')
+=======
+        print(book_name,'已完成')
+>>>>>>> 39445c17ad8549db4de5a75f9d743a626a151ed7
